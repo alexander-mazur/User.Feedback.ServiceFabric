@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/User.Feedback.SF" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="ProcessorActorService_PartitionCount" Value="1" />
+    <Parameter Name="ProcessorActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="ProcessorActorService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="PersistenceActorService_PartitionCount" Value="1" />
+    <Parameter Name="PersistenceActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="PersistenceActorService_MinReplicaSetSize" Value="1" />
+  </Parameters>
+</Application>

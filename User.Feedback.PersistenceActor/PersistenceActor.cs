@@ -20,7 +20,7 @@ namespace User.Feedback.PersistenceActor
     ///  - Volatile: State is kept in memory only and replicated.
     ///  - None: State is kept in memory only and not replicated.
     /// </remarks>
-    [StatePersistence(StatePersistence.Persisted)]
+    [StatePersistence(StatePersistence.None)]
     internal class PersistenceActor : Actor, IPersistenceActor
     {
         private IList<UserFeedback> _userFeedbacks = new List<UserFeedback>();

@@ -50,7 +50,11 @@ namespace User.Feedback.ProcessorActor
 
         public Task TellUserFeedbackAsync(UserFeedback userFeedback)
         {
-            return _persistenceActor.TellUserFeedbackAsync(userFeedback);
+            return _persistenceActor.TellUserFeedbackAsync(userFeedback).ContinueWith(task =>
+            {
+                var processorActorEvent = GetEvent<IProcessorActorEvents>();
+                processorActorEvent.UserFeedbackUpdated(new UserFeedback(userFeedback.Message + "*", userFeedback.Created));
+            });
         }
     }
 }

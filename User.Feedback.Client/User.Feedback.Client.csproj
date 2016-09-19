@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\IUserFeedbackManager.cs" />
+    <Compile Include="ActorEvents\ProcessorActorEventHandler.cs" />
     <Compile Include="BusinessObjects\UserFeedbackManager.cs" />
     <Compile Include="Views\Main\IMainForm.cs" />
     <Compile Include="Views\Main\MainForm.cs">

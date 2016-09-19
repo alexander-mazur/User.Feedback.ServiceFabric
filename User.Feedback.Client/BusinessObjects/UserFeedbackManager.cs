@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
 
+using User.Feedback.Client.ActorEvents;
 using User.Feedback.ProcessorActor.Interfaces;
 using User.Feedback.Common;
 using User.Feedback.PersistenceActor.Interfaces;
@@ -27,6 +28,8 @@ namespace User.Feedback.Client.BusinessObjects
 
             _processorActor = ActorProxy.Create<IProcessorActor>(new ActorId("User.Feedback.ProcessorActor"), "fabric:/User.Feedback.SF");
             _persistenceActor = ActorProxy.Create<IPersistenceActor>(new ActorId("User.Feedback.PersistenceActor"), "fabric:/User.Feedback.SF");
+
+            _processorActor.SubscribeAsync<IProcessorActorEvents>(new ProcessorActorEventHandler(this));
         }
 
         public static IUserFeedbackManager Instance { get; } = new UserFeedbackManager();

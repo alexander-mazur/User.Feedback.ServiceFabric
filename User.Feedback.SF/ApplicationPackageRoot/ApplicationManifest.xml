@@ -5,8 +5,8 @@
     <Parameter Name="ProcessorActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="ProcessorActorService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="PersistenceActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="PersistenceActorService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="PersistenceActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="PersistenceActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="PersistenceActorService_TargetReplicaSetSize" DefaultValue="1" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
@@ -23,7 +23,7 @@
         <UniformInt64Partition PartitionCount="[ProcessorActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
-    <Service Name="PersistenceActorService" GeneratedIdRef="b8fd3816-0b77-4527-89a8-0bf8ce01629d|Persisted">
+    <Service Name="PersistenceActorService" GeneratedIdRef="7a1c98b9-0275-4ba5-b9f7-a6e926f75441|None">
       <StatefulService ServiceTypeName="PersistenceActorServiceType" TargetReplicaSetSize="[PersistenceActorService_TargetReplicaSetSize]" MinReplicaSetSize="[PersistenceActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[PersistenceActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
